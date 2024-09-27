@@ -1,0 +1,45 @@
+.card1, .card2 {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+   width: 450px; 
+   margin-right: 10px;
+    height: 500px; /* adjust the height to your liking */
+    background-color: #f7f7f7; /* optional */
+    border: 1px solid #ddd; /* optional */
+    border-radius: 10%; /* optional */
+  }
+  
+  .profileImg {
+    width: 350px; /* adjust the width to your liking */
+    height: 400px; /* adjust the height to your liking */
+    
+    object-fit: cover; /* to ensure the image is scaled correctly */
+  }
+  .details {
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  
+  .details h2 {
+    margin-bottom: 10px;
+  }
+  
+  .details p {
+    margin-bottom: 10px;
+  }
+  
+  .details strong {
+    font-weight: bold;
+  }
+  .card2{
+    height: 400px;
+  }

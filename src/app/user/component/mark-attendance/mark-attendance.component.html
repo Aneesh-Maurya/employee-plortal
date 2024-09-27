@@ -1,0 +1,84 @@
+<div class="page-header">
+    <div><h2><i class="fa fa-check  mr-2" aria-hidden="true"></i>Mark Attendance</h2></div>
+  </div>
+  
+  <div class="container-fluid">
+    <div class="row mt-3">
+      <div class="col-md-6 offset-md-4">
+        <div class="card">
+          <div class="card-body">
+           
+            <table class="table table-sm table-borderless">
+                
+                <tbody>
+                  <tr>
+                    <td style="width: 150px;"><label for="">Employee Name</label></td>
+                    <td>{{username}}</td>
+                   
+                  </tr>
+                  <tr>
+                    <td><label for="">Day</label></td>
+                    <td>{{ today | date: 'EEEE' }}</td>
+                    
+                  </tr>
+                  <tr>
+                    <td><label for="">Date</label></td>
+                    <td>{{ today | date: 'dd/MM/yyyy' }}</td>
+                  
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                    
+                            <button class="btn btn-app" [hidden]="buttonHidden" (click)="markAttend()">{{ isOfficeIn ? 'Office In' : 'Office Out' }}</button>
+                            <span style="color: red; font-weight: bold;">{{showmessage}}</span>
+                       
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <div class="row mt-4">
+        <div class="col-md-12">
+                 <div class="table-responsive">
+                    <table class="table table-bordered table-sm" [hidden]="tableHidden">
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>Day</th>
+                            <th>Login Time</th>
+                            <th>Logout Time</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{ today | date: 'dd/MM/yyyy' }}</td>
+                            <td>{{ today | date: 'EEEE' }}</td>
+                            <td>{{ loginTime }}</td>
+                            <td>{{ logoutTime }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                 </div>
+        </div>
+     </div>
+
+
+  </div>
+
+
+  <div id="spinner"   *ngIf="showspinner">
+    <div class="clock"></div>
+    <p id="spinnertext">
+      <label>Processing, Please wait...</label>
+    </p>
+  </div>
+

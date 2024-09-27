@@ -1,0 +1,71 @@
+
+
+<div class="page-header">
+  <div><h2><i class="fa fa-files-o mr-2" aria-hidden="true"></i> Attendance Report</h2></div>
+</div>
+
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="col-md-12">
+         <div class="d-flex">
+          <div class="form-group mr-2">
+            <!-- <select class="form-control"  >
+              <option value="" disabled>Select Month</option>
+              <option value="">Jan</option>
+            </select> -->
+            <select class="form-control" id="month-select" [(ngModel)]="selectedMonth"  (change)="onChangeMonth()">
+              <option value="" disabled>Select Month</option>
+              <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <select name="year" id="year" class="form-control" (change)="filterData($event)">
+              <option value="" disabled>Select Year</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+            </select>
+            </div>
+         </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-bordered table-sm">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Day</th>
+              <th>Login Time</th>
+              <th>Logout Time</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let attendance of attendanceReport">
+                  <td>{{ attendance.createddate | date: 'MM/dd/yyyy' }}</td>
+                  <td>{{ attendance.days | date: 'EEEE' }}</td>
+                  <td>{{ attendance.logintime }}</td>
+                  <td>{{ attendance.logouttime }}</td>
+                </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+
+
+</div>
+
+
+
+
+<div id="spinner"   *ngIf="showspinner">
+    <div class="clock"></div>
+    <p id="spinnertext">
+      <label>Processing, Please wait...</label>
+    </p>
+  </div>
